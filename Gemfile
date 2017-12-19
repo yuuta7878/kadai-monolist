@@ -54,3 +54,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'awesome_print'
+# Rakuten_Ruby 用のライブラリ
+gem 'rakuten_web_service' , '1.5.0'
+# 環境変数設定
+gem 'dotenv-rails'
