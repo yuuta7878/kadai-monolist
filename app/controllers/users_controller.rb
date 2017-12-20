@@ -2,6 +2,8 @@ class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show] # app_controller ログイン要求処理 => showはログインしていないユーザーには見せたくない。
   def show
     @user = User.find(params[:id])
+    @items = @user.items.uniq
+    @count_want = @user.want_items.count
   end
 
   def new

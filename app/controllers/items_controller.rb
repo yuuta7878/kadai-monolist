@@ -22,30 +22,15 @@ class ItemsController < ApplicationController
 
       results.each do |result|
         # 扱い易いように Item としてインスタンスを作成する（保存はしない）
-        item = Item.new(read(result))
+        item = Item.find_or_initialize_by(read(result))
         @items << item
       end
     end
   end
   
-  private
-  
-  def read(result)
-    code = result['itemsCode']
-    name = result['itemName']
-    url = result['itemUrl']
-    # 画像 URL 末尾に含まれる ?_ex=128x128を削除している
-    # 楽天APIの仕様上、サイズ指定無しの画像を取得できないので、
-    # 無理矢理ですが、元画像をこのようにして取得している。
-    image_url = result['mediumImageUrls'].first['imageUrl'].gsub('?_ex=128x128', '') 
-    
-    return {
-      code: code,
-      name: name,
-      url: url,
-      image_url: image_url,
-    }
+  def show
+    @item = Item.find(params[:id])
+    @want_users = @item.want_users
   end
+
 end
-  
-  
