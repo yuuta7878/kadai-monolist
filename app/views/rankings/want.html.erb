@@ -2,7 +2,7 @@
 <h1>Wantランキング</h1>
 <% if @items.present? %>
   <div class="row">
-    <% @items.each_with_index do |item, index| %>
+    <% @items.each_with_index do |item, index| %>　<!--アイテムを1つずつ取り出しています。-->
       <div class="item">
         <div class="col-md-3 col-sm-4 col-xs-12">
           <div class="panel panel-default">

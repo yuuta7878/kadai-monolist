@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete 'logout', to: 'sessions#destory'
   
   get 'signup', to: 'users#new'
-  get 'ranking', to: 'ranking#want'
+  get 'rankings/want', to: 'rankings#want'
   resources :users, only: [:show, :new, :create]
   # 楽天 API を使った検索結果を表示するページ(new)のみを作成します。
   # 共有したいものだけを保存するため
