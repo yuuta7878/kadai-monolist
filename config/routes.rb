@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   
   get 'signup', to: 'users#new'
   get 'rankings/want', to: 'rankings#want'
+  get 'rankings/have', to: 'rankings#have'
   resources :users, only: [:show, :new, :create]
   # 楽天 API を使った検索結果を表示するページ(new)のみを作成します。
   # 共有したいものだけを保存するため
